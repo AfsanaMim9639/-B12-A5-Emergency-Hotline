@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emergency Service Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#EEF9F2",
+              100: "#E6F7EC",
+              200: "#D7F1E0",
+              300: "#BFE9CE",
+              400: "#8EDDB0",
+              500: "#3BCB80",
+              600: "#18B566",
+              700: "#0E8E4F",
+              800: "#0C6E3E",
+              900: "#0A5632",
+            },
+          },
+          boxShadow: {
+            card: "0 6px 24px rgba(0,0,0,0.08)",
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html,body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    @keyframes fadein { from{opacity:0; transform:translate(-50%,6px)} to{opacity:1; transform:translate(-50%,0)} }
+  </style>
+</head>
+<body class="bg-brand-50 min-h-screen">
+  <!-- Top bar -->
+  <header class="bg-white/90 backdrop-blur sticky top-0 z-50 shadow">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"> <!-- increased height -->
+    
+    <!-- Logo and Text -->
+    <div class="flex items-center gap-4"> <!-- increased gap -->
+      <img alt="BD Emblem" class="w-12 h-12 rounded-full ring-2 ring-brand-600" src="assets/logo.png"> <!-- bigger logo -->
+      <span class="font-bold text-brand-800 text-[#006747] text-xl sm:text-2xl">Emergency <br>Service</span> <!-- bigger text -->
+    </div>
+
+    <!-- Right Side Buttons -->
+    <div class="flex items-center gap-3 text-sm">
+      <div class="flex items-center gap-1 bg-brand-100 px-3 py-1 rounded-full">
+        <span>❤️</span><span id="favCount">0</span> <!-- red heart -->
+      </div>
+      <div class="flex items-center gap-1 bg-yellow-100 px-3 py-1 rounded-full">
+        <span>🪙</span><span>100</span>
+      </div>
+      <button class="bg-brand-600 hover:bg-gray-700 text-white px-3 py-1 rounded-full">2 Copy</button> <!-- changed to gray -->
+    </div>
+  </div>
+</header>
+
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-brand-800 via-brand-700 to-brand-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <img class="w-14 h-14 mx-auto mb-3"
+           src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Seal_of_the_Government_of_Bangladesh.svg" alt="">
+      <h1 class="text-3xl md:text-4xl font-extrabold">Emergency Service Directory</h1>
+      <p class="mt-2 text-white/90">
+        Government Emergency Services at Your Fingertip — A Project by Government of the People’s Republic of Bangladesh
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <!-- Cards -->
+      <section class="lg:col-span-3">
+        <div id="cardGrid" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <!-- Cards will be injected by JS -->
+        </div>
+      </section>
+
+      <!-- Sidebar: Call History -->
+      <aside class="lg:col-span-1">
+        <div class="bg-white rounded-2xl shadow-card p-4 sticky lg:top-20">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-700" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-.91 1A18 18 0 013 5.91a1 1 0 011- .91H7.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01z"/></svg>
+              <h3 class="font-semibold">Call History</h3>
+            </div>
+            <button id="clearHistory" class="text-sm bg-brand-600 text-white px-3 py-1 rounded-full hover:bg-brand-700">Clear</button>
+          </div>
+          <ul id="historyList" class="space-y-2 max-h-[60vh] overflow-auto pr-1"></ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 bg-brand-800 text-white px-4 py-2 rounded-full shadow-lg"></div>
+
+  <footer class="py-8 text-center text-sm text-brand-800/70">
+    © <span id="year"></span> Emergency Service Directory
+  </footer>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
