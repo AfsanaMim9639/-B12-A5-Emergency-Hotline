@@ -14,7 +14,7 @@ const services = [
     number: "999",
     tags: ["Police"],
     icon: "👮",
-    image: "https://example.com/police.png"
+    image: "assets/police.png"
   },
   {
     title: "Fire Service Number",
@@ -22,7 +22,7 @@ const services = [
     number: "999",
     tags: ["Fire"],
     icon: "🚒",
-    image: "https://example.com/fire.png"
+    image: "assets/fire-service.png"
   },
   {
     title: "Ambulance Service",
@@ -30,7 +30,7 @@ const services = [
     number: "1994-999999",
     tags: ["Health"],
     icon: "🚑",
-    image: "https://example.com/ambulance.png"
+    image: "assets/ambulance.png"
   },
   {
     title: "Women & Child Helpline",
@@ -38,7 +38,7 @@ const services = [
     number: "109",
     tags: ["Help"],
     icon: "🧒",
-    image: "https://example.com/women_child.png"
+    image: "assets/emergency.png"
   },
   {
     title: "Anti-Corruption Helpline",
@@ -46,7 +46,7 @@ const services = [
     number: "106",
     tags: ["Govt."],
     icon: "🛡️",
-    image: "https://example.com/anticorruption.png"
+    image: "assets/emergency.png"
   },
 ];
 
