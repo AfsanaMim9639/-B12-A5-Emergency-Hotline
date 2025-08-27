@@ -78,12 +78,14 @@ const services = [
 
 
 // Elements
+const copyCountEl = document.getElementById("copyCount");
+let lastCopiedNumber = null;
 const favs = new Set();
 const favCountEl = document.getElementById("favCount");
 const cardGrid = document.getElementById("cardGrid");
 const toast = document.getElementById("toast");
 const historyList = document.getElementById("historyList");
-
+const copyBtn = document.getElementById("copyBtn");
 // Render cards
 services.forEach((s, idx) => cardGrid.appendChild(makeCard(s, idx)));
 
@@ -145,16 +147,25 @@ document.addEventListener("click", async (e) => {
   const callBtn = e.target.closest(".callBtn");
   const favBtn  = e.target.closest(".favBtn");
 
-  if (copyBtn) {
-    const num = copyBtn.dataset.num;
+  
+  
+if (copyBtn) { // check if the button exists / clicked
+    const number = copyBtn.dataset.num || "12345"; // get number from data attribute or fallback
+
     try {
-      await navigator.clipboard.writeText(num);
-      showToast(`Copied ${num}`);
-      //addHistory({title: "Copied Number", number: num});
-    } catch {
-      showToast("Copy failed");
+        await navigator.clipboard.writeText(number); // Copy to clipboard
+
+        // Increase count every time
+        copyCountEl.textContent = parseInt(copyCountEl.textContent) + 1;
+
+        // Show regular alert instead of toast
+        alert(`Copied ${number}!`);
+    } catch (err) {
+        console.error("Failed to copy: ", err);
     }
-  }
+}
+
+
 
   if (callBtn) {
     const num = callBtn.dataset.num;
@@ -177,13 +188,6 @@ document.addEventListener("click", async (e) => {
   }
 });
 
-// Toast
-function showToast(msg) {
-  toast.textContent = msg;
-  toast.classList.remove("hidden");
-  toast.classList.add("animate-[fadein_0.2s_ease-out]");
-  setTimeout(() => toast.classList.add("hidden"), 1300);
-}
 
 // Call history
 function addHistory({title, number}) {
