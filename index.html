@@ -40,70 +40,70 @@
 <body class="bg-brand-50 min-h-screen">
   <!-- Top bar -->
   <header class="bg-white/90 backdrop-blur sticky top-0 z-50 shadow">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"> <!-- increased height -->
-    
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
     <!-- Logo and Text -->
-    <div class="flex items-center gap-4"> <!-- increased gap -->
-      <img alt="BD Emblem" class="w-12 h-12 rounded-full ring-2 ring-brand-600" src="assets/logo.png"> <!-- bigger logo -->
-      <span class="font-bold text-brand-800 text-[#006747] text-xl sm:text-2xl">Emergency <br>Service</span> <!-- bigger text -->
+    <div class="flex items-center gap-2 sm:gap-4">
+      <img alt="BD Emblem" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-2 ring-brand-600" src="assets/logo.png">
+      <span class="font-bold text-brand-800 text-lg sm:text-xl md:text-2xl text-center sm:text-left">
+        Emergency <br class="sm:hidden"> Service
+      </span>
     </div>
 
     <!-- Right Side Buttons -->
-    <div class="flex items-center gap-3 text-sm">
+    <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3 mt-2 sm:mt-0 text-sm justify-center">
       <div class="flex items-center gap-1 bg-brand-100 px-3 py-1 rounded-full">
-        <span>❤️</span><span id="favCount">0</span> <!-- red heart -->
+        <span>❤️</span><span id="favCount">0</span>
       </div>
       <div class="flex items-center gap-1 bg-yellow-100 px-3 py-1 rounded-full">
         <span>🪙</span><span>100</span>
       </div>
       <button id="copyBtn" class="bg-brand-600 hover:bg-gray-700 text-white px-3 py-1 rounded-full">
-  📋 Copy (<span id="copyCount">0</span>)
-</button>
- <!-- changed to gray -->
+        📋 Copy (<span id="copyCount">0</span>)
+      </button>
     </div>
   </div>
 </header>
 
 
+
   <!-- Hero -->
   <section class="bg-gradient-to-r from-[#013223] via-[#006747] to-[#013223] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
-      <img class="w-14 h-14 mx-auto mb-3"
-           src="assets/logo-dark.png" alt="">
-      <h1 class="text-3xl md:text-3xl font-extrabold">Emergency Service Directory</h1>
-      <p class="mt-2 text-white/90">
-        Government Emergency Services at Your Fingertip — A Project by Government of the People’s Republic of Bangladesh
-      </p>
-    </div>
-  </section>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-center">
+    <img class="w-12 sm:w-14 h-12 sm:h-14 mx-auto mb-3" src="assets/logo-dark.png" alt="">
+    <h1 class="text-2xl sm:text-3xl md:text-3xl font-extrabold">Emergency Service Directory</h1>
+    <p class="mt-2 text-white/90 text-sm sm:text-base">
+      Government Emergency Services at Your Fingertip — A Project by Government of the People’s Republic of Bangladesh
+    </p>
+  </div>
+</section>
+
 
   <!-- Content -->
-  <main class="mx-auto px-4 sm:px-6 lg:px-8 py-6" style="max-width:1800px;">
+  <main class="mx-auto px-4 sm:px-6 lg:px-8 py-6 max-w-[1800px]">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <!-- Cards -->
+    <section class="lg:col-span-3">
+      <div id="cardGrid" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
+    </section>
 
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-      <!-- Cards -->
-      <section class="lg:col-span-3">
-        <div id="cardGrid" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          <!-- Cards will be injected by JS -->
-        </div>
-      </section>
-
-      <!-- Sidebar: Call History -->
-      <aside class="lg:col-span-1">
-        <div class="bg-white rounded-2xl shadow-card p-4 sticky lg:top-20">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-2">
-             <svg class="w-10 h-10 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 8v5h4m6 0a10 10 0 11-5.93-9.14l.71-1.82a1 1 0 011.84.76l-1.23 3.16a1 1 0 01-1.3.6l-3.16-1.23a1 1 0 01.76-1.84l1.82.71A8 8 0 1020 12z"/>
-  </svg> <h3 class="font-semibold">Call History</h3>
-            </div>
-            <button id="clearHistory" class="text-sm bg-brand-600 text-white px-3 py-1 rounded-full hover:bg-brand-700">Clear</button>
+    <!-- Sidebar: Call History -->
+    <aside class="lg:col-span-1">
+      <div class="bg-white rounded-2xl shadow-card p-4 sticky lg:top-20">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v5h4m6 0a10 10 0 11-5.93-9.14l.71-1.82a1 1 0 011.84.76l-1.23 3.16a1 1 0 01-1.3.6l-3.16-1.23a1 1 0 01.76-1.84l1.82.71A8 8 0 1020 12z"/>
+            </svg>
+            <h3 class="font-semibold text-sm sm:text-base">Call History</h3>
           </div>
-          <ul id="historyList" class="space-y-2 max-h-[60vh] overflow-auto pr-1"></ul>
+          <button id="clearHistory" class="text-xs sm:text-sm bg-brand-600 text-white px-2 py-1 rounded-full hover:bg-brand-700">Clear</button>
         </div>
-      </aside>
-    </div>
-  </main>
+        <ul id="historyList" class="space-y-2 max-h-[60vh] overflow-auto pr-1"></ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
 
   <!-- Toast -->
   <div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 bg-brand-800 text-white px-4 py-2 rounded-full shadow-lg"></div>
