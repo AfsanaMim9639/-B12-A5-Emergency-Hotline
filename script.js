@@ -162,12 +162,18 @@ document.addEventListener("click", async (e) => {
     addHistory({title, number: num});
   }
 
+  //const favBtn = e.target.closest(".favBtn"); // assuming your heart icon has class "favBtn"
   if (favBtn) {
-    const idx = +favBtn.dataset.idx;
-    if (favs.has(idx)) favs.delete(idx); else favs.add(idx);
-    favCountEl.textContent = favs.size;
-    favBtn.classList.toggle("text-brand-600");
-    favBtn.classList.toggle("fill-brand-600");
+    // Get current count element
+    const favCountEl = document.getElementById("favCount"); // adjust to your counter element
+    // Increase count by 1
+    favCountEl.textContent = +favCountEl.textContent + 1;
+
+    // Optional: add some visual effect on the heart
+    favBtn.classList.add("text-brand-600", "fill-brand-600");
+    setTimeout(() => {
+      favBtn.classList.remove("text-brand-600", "fill-brand-600");
+    }, 300); // temporary animation effect
   }
 });
 
