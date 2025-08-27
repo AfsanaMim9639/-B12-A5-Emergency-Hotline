@@ -78,6 +78,9 @@ const services = [
 
 
 // Elements
+let coins = 100; // initial coin balance
+const coinCountEl = document.getElementById("coinCount");
+//coinCountEl.textContent = coins;
 const copyCountEl = document.getElementById("copyCount");
 let lastCopiedNumber = null;
 const favs = new Set();
@@ -86,6 +89,8 @@ const cardGrid = document.getElementById("cardGrid");
 const toast = document.getElementById("toast");
 const historyList = document.getElementById("historyList");
 const copyBtn = document.getElementById("copyBtn");
+
+
 // Render cards
 services.forEach((s, idx) => cardGrid.appendChild(makeCard(s, idx)));
 
@@ -126,8 +131,8 @@ function makeCard(svc, idx) {
       <button class="copyBtn border border-gray-200 rounded-xl px-3 py-2 text-sm hover:bg-gray-700 hover:text-white" data-num="${svc.number}">
         <span class="inline-flex items-center gap-2"><input type="checkbox" class="pointer-events-none"> Copy</span>
       </button>
-      <a href="tel:${svc.number}" 
-   class="callBtn bg-brand-600 hover:bg-brand-700 text-white rounded-xl px-3 py-2 text-sm text-center"
+      <a 
+   class="callBtn bg-brand-600 hover:bg-brand-700 text-white rounded-xl px-3 py-2 text-sm text-center cursor-pointer"
    data-title="${svc.title}" 
    data-num="${svc.number}">
    Call
@@ -168,10 +173,28 @@ if (copyBtn) { // check if the button exists / clicked
 
 
   if (callBtn) {
+    e.preventDefault(); // prevent default <a> navigation
+
     const num = callBtn.dataset.num;
     const title = callBtn.dataset.title;
-    addHistory({title, number: num});
-  }
+
+    // Example coin system: deduct 20 coins per call
+    if (coins >= 20) {
+        coins -= 20;
+
+        // Update coin display
+        const coinCountEl = document.querySelector(".flex.items-center.bg-yellow-100 span:last-child");
+        if (coinCountEl) coinCountEl.textContent = coins;
+
+        // Show alert
+        alert(`Calling ${title}: ${num}`);
+
+        // Add to history
+        addHistory({ title, number: num });
+    } else {
+        alert("Insufficient coins to make the call.");
+    }
+}
 
   //const favBtn = e.target.closest(".favBtn"); // assuming your heart icon has class "favBtn"
   if (favBtn) {
