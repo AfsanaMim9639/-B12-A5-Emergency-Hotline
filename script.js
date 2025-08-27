@@ -48,6 +48,30 @@ const services = [
     icon: "🛡️",
     image: "assets/emergency.png"
   },
+  {
+    title: "Electricity Helpline",
+    dept: "Electricity Outage",
+    number: "16216",
+    tags: ["Electricity"],
+    icon: "🚑",
+    image: "assets/ambulance.png"
+  },
+  {
+    title: "Brac Helpline",
+    dept: "Brac",
+    number: "16445",
+    tags: ["NGO"],
+    icon: "🧒",
+    image: "assets/emergency.png"
+  },
+  {
+    title: "Bangladesh Railway Helpline",
+    dept: "Bangladesh Railway",
+    number: "103",
+    tags: ["Travel"],
+    icon: "🛡️",
+    image: "assets/emergency.png"
+  },
 ];
 
 
@@ -88,7 +112,7 @@ function makeCard(svc, idx) {
     <p class="text-sm text-gray-500 mb-3">${svc.dept}</p>
 
     <!-- 4. Hotline number -->
-    <div class="text-3xl font-extrabold text-gray-900 mb-3">${svc.number}</div>
+    <div class="text-2xl font-extrabold text-gray-900 mb-3">${svc.number}</div>
 
     <!-- 5. Tags -->
     <div class="flex flex-wrap gap-2 mb-4">
@@ -97,25 +121,15 @@ function makeCard(svc, idx) {
 
     <!-- 6. Two buttons -->
     <div class="mt-auto grid grid-cols-2 gap-3">
-      <button class="copyBtn border border-gray-200 rounded-xl px-3 py-2 text-sm hover:bg-gray-50" data-num="${svc.number}">
+      <button class="copyBtn border border-gray-200 rounded-xl px-3 py-2 text-sm hover:bg-gray-700 hover:text-white" data-num="${svc.number}">
         <span class="inline-flex items-center gap-2"><input type="checkbox" class="pointer-events-none"> Copy</span>
       </button>
-      <a href="tel:${svc.number.replaceAll(' ','')}" class="callBtn bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl px-4 py-2 text-sm flex items-center justify-center gap-2">
-  <!-- Full Telephone Icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.63A2 2 0 014.11 2h3a2 2 0 012 1.72c.2 1.38.61 2.73 1.21 4.01a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c1.28.6 2.63 1.01 4.01 1.21a2 2 0 011.72 2z"/>
-  </svg>
-  Call
+      <a href="tel:${svc.number}" 
+   class="callBtn bg-brand-600 hover:bg-brand-700 text-white rounded-xl px-3 py-2 text-sm text-center"
+   data-title="${svc.title}" 
+   data-num="${svc.number}">
+   Call
 </a>
-
-
-
-
-
-
-
-
-
 
     </div>
   `;
@@ -136,7 +150,7 @@ document.addEventListener("click", async (e) => {
     try {
       await navigator.clipboard.writeText(num);
       showToast(`Copied ${num}`);
-      addHistory({title: "Copied Number", number: num});
+      //addHistory({title: "Copied Number", number: num});
     } catch {
       showToast("Copy failed");
     }
