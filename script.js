@@ -143,9 +143,10 @@ function makeCard(svc, idx) {
 </button>
 
       <a 
-   class="callBtn bg-brand-600 hover:bg-brand-700 text-white rounded-xl px-3 py-2 text-sm text-center cursor-pointer"
+   class="callBtn bg-brand-600 hover:bg-brand-800 text-white rounded-xl px-3 py-2 text-sm text-center cursor-pointer"
    data-title="${svc.title}" 
    data-num="${svc.number}">
+   <i class="fa-solid fa-phone"></i>
    Call
 </a>
 
