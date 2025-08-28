@@ -1,3 +1,4 @@
+
 // Emergency services data
 const services = [
   {
@@ -133,8 +134,13 @@ function makeCard(svc, idx) {
     <!-- 6. Two buttons -->
     <div class="mt-auto grid grid-cols-2 gap-3">
       <button class="copyBtn border border-gray-200 rounded-xl px-3 py-2 text-sm hover:bg-gray-700 hover:text-white" data-num="${svc.number}">
-        <span class="inline-flex items-center gap-2"><input type="checkbox" class="pointer-events-none"> Copy</span>
-      </button>
+  <span class="inline-flex items-center gap-2">
+    
+    <i class="fa-regular fa-copy"></i>
+    Copy
+  </span>
+</button>
+
       <a 
    class="callBtn bg-brand-600 hover:bg-brand-700 text-white rounded-xl px-3 py-2 text-sm text-center cursor-pointer"
    data-title="${svc.title}" 
@@ -168,7 +174,7 @@ if (copyBtn) { // check if the button exists / clicked
         copyCountEl.textContent = parseInt(copyCountEl.textContent) + 1;
 
         // Show regular alert instead of toast
-        alert(`Copied ${number}!`);
+        alert(`The Number has been copied : ${number}!`);
     } catch (err) {
         console.error("Failed to copy: ", err);
     }
