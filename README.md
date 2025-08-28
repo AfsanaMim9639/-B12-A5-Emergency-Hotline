@@ -3,11 +3,17 @@
 
 ### 1. Difference between `getElementById`, `getElementsByClassName`, and `querySelector` / `querySelectorAll`
 
-- **`getElementById(id)`** → Selects a single element by its **unique `id`** attribute.  
-- **`getElementsByClassName(className)`** → Selects **all elements** that have the specified class name (returns an *HTMLCollection*).  
-- **`querySelector(selector)`** → Selects the **first element** that matches the given CSS selector.  
-- **`querySelectorAll(selector)`** → Selects **all elements** matching the CSS selector (returns a *NodeList*).  
+**Answer:**
 
+1. **`getElementById("id")`** → Selects one element with the given ID. Returns a single element.
+
+2. **`getElementsByClassName("class")`** → Selects all elements with the given class. Returns an HTMLCollection (like an array, but not exactly).
+
+3. **`querySelector("selector")`** → Selects the first element that matches any CSS selector. Returns a single element.
+
+4. **`querySelectorAll("selector")`** → Selects all elements that match any CSS selector. Returns a NodeList (can loop with `forEach`).
+
+`getElementById` and `querySelector` return a single element, while `getElementsByClassName`, `getElementsByTagName`, `getElementsByName`, and `querySelectorAll` return collections like HTMLCollection or NodeList. Modern methods like `querySelector` and `querySelectorAll` are preferred, though old methods still work and may return live collections.
 
 ### 2. How to create and insert a new element into the DOM?
 
