@@ -5,7 +5,7 @@
 
 **Answer:**
 
-1. getElementById:
+**1. getElementById:**
 
 --Use the element’s id as a string.
 
@@ -13,7 +13,7 @@
 
 --Returns null if no element is found.
 
-2. getElementsByClassName:
+**2. getElementsByClassName:**
 
 --Use the class name as a string (can include multiple classes separated by spaces).
 
@@ -21,7 +21,7 @@
 
 --Returns an empty collection if nothing matches.
 
-3. querySelector
+**3. querySelector:**
 
 --Use any CSS selector string (like #id, .class, or div.class).
 
@@ -29,7 +29,7 @@
 
 --Returns null if nothing matches.
 
-4. querySelectorAll
+**4. querySelectorAll:**
 
 --Use any CSS selector string.
 
