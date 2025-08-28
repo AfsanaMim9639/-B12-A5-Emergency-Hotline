@@ -204,7 +204,7 @@ if (copyBtn) { // check if the button exists / clicked
         // Add to history
         addHistory({ title, number: num });
     } else {
-        alert("Insufficient coins to make the call.");
+        alert("You have insufficient coins to make a call. A minimum of 20 coins is required for a new call.");
     }
 }
 
