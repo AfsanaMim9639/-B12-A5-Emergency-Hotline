@@ -42,10 +42,13 @@
 **Answer:**
 Create a new element using the **document.createElement()** method. Then, set any attributes or properties for the element (like id, class, innerHTML, etc.). Next, select the parent node where you want to insert the new element. Finally, use one of the common methods to insert the new element into the parent node. These methods are:
 
-i) parentNode.appendChild(newNode) → inserts at the end
-ii) parentNode.insertBefore(newNode, referenceNode) → inserts before a reference node
-iii) parentNode.insertAdjacentElement(position, newNode) → allows more versatile positions
-iv) parentNode.append() or parentNode.prepend() → newer methods
+i) **parentNode.appendChild(newNode)** → inserts at the end
+
+ii) **parentNode.insertBefore(newNode, referenceNode)** → inserts before a reference node
+
+iii) **parentNode.insertAdjacentElement(position, newNode)** → allows more versatile positions
+
+iv) **parentNode.append() or parentNode.prepend()** → newer methods
 
 ### 3. What is Event Bubbling and how does it work?
 **Answer:**

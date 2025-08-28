@@ -7,7 +7,7 @@ const services = [
     number: "999",
     tags: ["All"],
     icon: "🚨",
-    image: "assets/emergency.png" // new top-left image
+    image: "assets/emergency.png" 
   },
   {
     title: "Police Helpline Number",
@@ -79,9 +79,8 @@ const services = [
 
 
 // Elements
-let coins = 100; // initial coin balance
+let coins = 100; 
 const coinCountEl = document.getElementById("coinCount");
-//coinCountEl.textContent = coins;
 const copyCountEl = document.getElementById("copyCount");
 let lastCopiedNumber = null;
 const favs = new Set();
@@ -166,16 +165,14 @@ document.addEventListener("click", async (e) => {
 
   
   
-if (copyBtn) { // check if the button exists / clicked
-    const number = copyBtn.dataset.num || "12345"; // get number from data attribute or fallback
+if (copyBtn) { 
+    const number = copyBtn.dataset.num || "12345"; 
 
     try {
-        await navigator.clipboard.writeText(number); // Copy to clipboard
+        await navigator.clipboard.writeText(number);
 
-        // Increase count every time
         copyCountEl.textContent = parseInt(copyCountEl.textContent) + 1;
 
-        // Show regular alert instead of toast
         alert(`The Number has been copied : ${number}!`);
     } catch (err) {
         console.error("Failed to copy: ", err);
@@ -185,41 +182,35 @@ if (copyBtn) { // check if the button exists / clicked
 
 
   if (callBtn) {
-    e.preventDefault(); // prevent default <a> navigation
+    e.preventDefault();
 
     const num = callBtn.dataset.num;
     const title = callBtn.dataset.title;
 
-    // Example coin system: deduct 20 coins per call
     if (coins >= 20) {
         coins -= 20;
 
-        // Update coin display
         const coinCountEl = document.querySelector(".flex.items-center.bg-yellow-100 span:last-child");
         if (coinCountEl) coinCountEl.textContent = coins;
 
-        // Show alert
         alert(`Calling ${title}: ${num}`);
 
-        // Add to history
         addHistory({ title, number: num });
     } else {
         alert("You have insufficient coins to make a call. A minimum of 20 coins is required for a new call.");
     }
 }
 
-  //const favBtn = e.target.closest(".favBtn"); // assuming your heart icon has class "favBtn"
   if (favBtn) {
-    // Get current count element
-    const favCountEl = document.getElementById("favCount"); // adjust to your counter element
-    // Increase count by 1
+    
+    const favCountEl = document.getElementById("favCount"); 
+    
     favCountEl.textContent = +favCountEl.textContent + 1;
 
-    // Optional: add some visual effect on the heart
     favBtn.classList.add("text-brand-600", "fill-brand-600");
     setTimeout(() => {
       favBtn.classList.remove("text-brand-600", "fill-brand-600");
-    }, 300); // temporary animation effect
+    }, 300); 
   }
 });
 
