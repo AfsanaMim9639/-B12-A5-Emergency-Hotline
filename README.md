@@ -5,15 +5,38 @@
 
 **Answer:**
 
-1. **`getElementById("id")`** → Selects one element with the given ID. Returns a single element.
+1. getElementById:
 
-2. **`getElementsByClassName("class")`** → Selects all elements with the given class. Returns an HTMLCollection (like an array, but not exactly).
+--Use the element’s id as a string.
 
-3. **`querySelector("selector")`** → Selects the first element that matches any CSS selector. Returns a single element.
+--Returns a single element (ids are unique).
 
-4. **`querySelectorAll("selector")`** → Selects all elements that match any CSS selector. Returns a NodeList (can loop with `forEach`).
+--Returns null if no element is found.
 
-`getElementById` and `querySelector` return a single element, while `getElementsByClassName`, `getElementsByTagName`, `getElementsByName`, and `querySelectorAll` return collections like HTMLCollection or NodeList. Modern methods like `querySelector` and `querySelectorAll` are preferred, though old methods still work and may return live collections.
+2. getElementsByClassName:
+
+--Use the class name as a string (can include multiple classes separated by spaces).
+
+--Returns a live collection (HTMLCollection) of all matching elements.
+
+--Returns an empty collection if nothing matches.
+
+3. querySelector
+
+--Use any CSS selector string (like #id, .class, or div.class).
+
+--Returns the first element that matches.
+
+--Returns null if nothing matches.
+
+4. querySelectorAll
+
+--Use any CSS selector string.
+
+--Returns all matching elements as a static NodeList.
+
+--Returns an empty NodeList if nothing matches.
+
 
 ### 2. How to create and insert a new element into the DOM?
 **Answer:**
@@ -29,6 +52,7 @@ iv) parentNode.append() or parentNode.prepend() → newer methods
 Event bubbling happens when an event starts on the element where it occurred and then “bubbles up” through its parent elements, one by one, all the way to the top of the DOM.
 
 **How it works:**
+
 i) When we click (or trigger an event) on an element, it first runs the event handler on that element.
 
 ii) Then the event moves up to the parent element and runs any handlers there.
@@ -55,6 +79,7 @@ iii) Simple: Keeps we code cleaner by managing events in one place.
 ### 5. Difference between `preventDefault()` and `stopPropagation()`
 
 **Answer:**
+
 preventDefault() → Stops the browser’s default action for an event (like submitting a form or opening a link). The event still moves through the DOM.
 
 stopPropagation() → Stops the event from traveling up or down the DOM tree. It doesn’t stop the browser’s default action.
