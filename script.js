@@ -136,7 +136,8 @@ function makeCard(svc, idx) {
       <button class="copyBtn border border-gray-200 rounded-xl px-3 py-2 text-sm hover:bg-gray-700 hover:text-white" data-num="${svc.number}">
   <span class="inline-flex items-center gap-2">
     
-    <i class="fa-regular fa-copy"></i>
+    <i class="fa-regular fa-copy text-sm sm:text-base"></i>
+
     Copy
   </span>
 </button>
