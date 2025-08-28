@@ -62,7 +62,7 @@ const services = [
     number: "16445",
     tags: ["NGO"],
     icon: "🧒",
-    image: "assets/emergency.png"
+    image: "assets/brac.png"
   },
   {
     title: "Bangladesh Railway Helpline",
@@ -70,7 +70,7 @@ const services = [
     number: "103",
     tags: ["Travel"],
     icon: "🛡️",
-    image: "assets/emergency.png"
+    image: "assets/Bangladesh-Railway.png"
   },
 ];
 
@@ -101,15 +101,19 @@ function makeCard(svc, idx) {
   card.innerHTML = `
     <!-- Top row: Icon + Favorite -->
     <div class="flex items-center justify-between mb-4">
-  <div class="w-6 h-6 flex items-center justify-center rounded-lg bg-[rgba(246, 87, 59, 0.4)] overflow-hidden">
-  <img src="${svc.image}" alt="${svc.title}" class="w-full h-full object-cover"/>
-</div>
+  <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-[#FFE3E2] overflow-hidden border border-[rgba(114, 108, 107, 0.6)] p-1">
+    <img src="${svc.image}" alt="${svc.title}" class="w-full h-full object-cover rounded-lg"/>
+  </div>
+
   <button aria-label="Toggle favorite" data-idx="${idx}" class="favBtn text-gray-400 hover:text-brand-700 transition flex items-center justify-center">
     <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
       <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 </div>
+
+
+
 
 
     <!-- 2. Name -->
